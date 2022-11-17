@@ -35,9 +35,3 @@ $THEME->scss = function($theme) {
     return theme_classic_get_main_scss_content($parent);
 };
 
-// execute this when the theme loads
-// don't allow anonymous logon in this theme
-if (file_exists($CFG->dirroot . '/auth/anonymous/lib.php')) {
-    require_once($CFG->dirroot . '/auth/anonymous/lib.php');
-    auth_anonymous_autologout();
-}
