@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Classic-assist theme.
+ * Classic Renderer theme.
  *
  * @package    theme_classicrenderer
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

@@ -13,13 +13,6 @@ class theme_classicrenderer_core_course_renderer extends core_course_renderer {
     public function render_activity_navigation(\core_course\output\activity_navigation $page) {
         $format = $this->page->course->format;
         if ($format === "onetopicplus") {
-
-            // $url = course_get_url($this->page->course);
-            // $label = 'Return to course home';
-            // $button = $this->output->single_button($url, $label);
-            // $this->page->set_button($button);
-
-            $p = $this->page;
             $data = new stdClass();
             $data->sectionnum = $this->page->cm->sectionnum;
             $data->courseid = $this->page->course->id;
