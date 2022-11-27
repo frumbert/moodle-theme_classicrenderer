@@ -23,6 +23,8 @@
 
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
+
+$THEME->doctype = 'html5';
 $THEME->name = 'classicrenderer';
 $THEME->parents = ['classic'];
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
@@ -35,3 +37,30 @@ $THEME->scss = function($theme) {
     return theme_classic_get_main_scss_content($parent);
 };
 
+$THEME->layouts = [
+    'standard' => array(
+        'file' => 'columns.php',
+        'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre',
+    ),
+    'course' => array(
+        'file' => 'columns.php',
+        'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre',
+        'options' => array('langmenu' => true),
+    ),
+    'incourse' => array(
+        'file' => 'columns.php',
+        'regions' => array('side-pre', 'side-post'),
+        'defaultregion' => 'side-pre',
+    ),
+];
+
+$THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
+
+// execute this when the theme loads
+// don't allow anonymous logon in this theme
+if (file_exists($CFG->dirroot . '/auth/anonymous/lib.php')) {
+    require_once($CFG->dirroot . '/auth/anonymous/lib.php');
+    auth_anonymous_autologout();
+}
