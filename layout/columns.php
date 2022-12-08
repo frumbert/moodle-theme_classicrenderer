@@ -24,10 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$extraclasses = [];
-$extraclasses[] = 'theme-'.$theme->name;
+$additionalclasses = [];
+$additionalclasses[] = 'theme-'.$theme->name;
 if (is_siteadmin()) { // TODO || editing role
-    $extraclasses[] = 'editor';
+    $additionalclasses[] = 'editor';
 }
 
 $coursesection = optional_param('section','',PARAM_ALPHANUM);
