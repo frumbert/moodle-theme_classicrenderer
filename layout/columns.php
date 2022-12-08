@@ -24,7 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$additionalclasses = ['theme-' . $PAGE->theme->name];
+$extraclasses = [];
+$extraclasses[] = 'theme-'.$theme->name;
+if (is_siteadmin()) { // TODO || editing role
+    $extraclasses[] = 'editor';
+}
 
 $coursesection = optional_param('section','',PARAM_ALPHANUM);
 if ("" !== $coursesection) {
